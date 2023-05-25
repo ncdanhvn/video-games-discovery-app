@@ -5,6 +5,8 @@
 // https://media.rawg.io/media/crop/600/400/games/fb5/fb5e0fdb1f6bb0e8b5da5d08bb83a5fc.jpg
 
 const getCroppedImageUrl = (url: string) => {
+  if (!url) return "";
+
   const target = "media/";
   const insert_string = "crop/600/400/";
   const insert_pos = url.indexOf(target) + target.length;
