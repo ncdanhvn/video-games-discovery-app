@@ -21,13 +21,14 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
 
   if (error) return null;
 
+  if (isLoading) return <Spinner />;
+
   return (
     <>
       <Heading fontSize="2xl" mb={3}>
         Genres
       </Heading>
       <List>
-        {isLoading && <Spinner />}
         {data.map((genre) => (
           <ListItem key={genre.id} py="5px">
             <HStack>
