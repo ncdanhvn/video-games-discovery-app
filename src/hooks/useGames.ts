@@ -16,18 +16,6 @@ export interface Game {
   rating_top: number;
 }
 
-// const useGames = (gameQuery: GameQuery) =>
-//   useQuery<Game[], Error>({
-//     queryKey: ["games", gameQuery],
-//     queryFn: () =>
-//       apiClient.getAll({
-//         genres: gameQuery.selectedGenre?.id,
-//         parent_platforms: gameQuery.selectedPlatform?.id,
-//         ordering: gameQuery.sortOrder,
-//         search: gameQuery.searchText,
-//       }),
-//   });
-
 const useGames = (gameQuery: GameQuery) =>
   useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: ["games", gameQuery],
@@ -44,6 +32,7 @@ const useGames = (gameQuery: GameQuery) =>
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
+    staleTime: 60 * 60 * 1000, // 1h
   });
 
 export default useGames;
