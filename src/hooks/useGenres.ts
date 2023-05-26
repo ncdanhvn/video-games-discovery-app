@@ -9,14 +9,9 @@ export interface Genre {
   image_background: string;
 }
 
-// const useGenres = () => useData<Genre>("/genres");
-// const useGenres = () => {
-//   return { data, isLoading: false, error: null };
-// };
-
 const useGenres = () => {
   return useQuery<Genre[], Error>({
-    queryKey: ["genres"], // Key to access fetching data in cache
+    queryKey: ["genres"],
     queryFn: () =>
       apiClient
         .get<FetchResponse<Genre>>("/genres")
