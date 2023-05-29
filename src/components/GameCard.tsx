@@ -1,10 +1,10 @@
-import React from "react";
+import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
+import { Link, useNavigate } from "react-router-dom";
 import { Game } from "../hooks/useGames";
-import { Card, CardBody, HStack, Heading, Image, Text } from "@chakra-ui/react";
-import PlatformIconList from "./PlatformIconList";
-import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
+import CriticScore from "./CriticScore";
 import GameEmoji from "./GameEmoji";
+import PlatformIconList from "./PlatformIconList";
 
 const GameCard = ({ game }: { game: Game }) => {
   return (
@@ -15,7 +15,9 @@ const GameCard = ({ game }: { game: Game }) => {
           <PlatformIconList platforms={game.parent_platforms} />
           <CriticScore score={game.metacritic} />
         </HStack>
-        <Heading fontSize="2xl">{game.name}</Heading>
+        <Heading fontSize="2xl">
+          <Link to={"games/" + game.slug}>{game.name}</Link>
+        </Heading>
         <GameEmoji ratingTop={game.rating_top} />
       </CardBody>
     </Card>
