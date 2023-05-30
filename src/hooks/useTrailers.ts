@@ -8,7 +8,7 @@ const useTrailers = (id: number) => {
 
   return useQuery<FetchResponse<Trailer>, Error>({
     queryKey: ["trailers", id],
-    queryFn: () => apiClient.getAll(),
+    queryFn: apiClient.getAll,
     staleTime: ms("24h"),
   });
 };
