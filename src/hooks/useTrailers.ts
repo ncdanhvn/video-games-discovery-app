@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import ms from "ms";
-import { Trailer } from "../entities/Trailer";
+import Trailer from "../entities/Trailer";
 import APIClient, { FetchResponse } from "../services/api-client";
 
 const useTrailers = (id: number) => {
