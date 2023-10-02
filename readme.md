@@ -2,6 +2,7 @@
 
 - Webapp to search for your favorite video games.
 - You can search for keywords, or prefered genres, platforms...
+- Live demo [here](https://video-games-discovery-app.vercel.app/)
 
 ## General Information
 
